@@ -34,7 +34,7 @@ document.querySelector("#faster").addEventListener("click", function() {
 });
 
 document.querySelector("#skip").addEventListener("click", function() {
-    video.currentTime += 0.1;
+    video.currentTime += 10;
     if (video.currentTime >= video.duration) {
         video.currentTime = 0;
     }
@@ -43,13 +43,11 @@ document.querySelector("#skip").addEventListener("click", function() {
 });
 
 document.querySelector("#mute").addEventListener("click", function() {
-    if (video.muted == false) {
+    if (!video.muted) {
         video.muted = true;
-        document.getElementById('volume').innerHTML = 'muted';
         document.getElementById('mute').innerHTML = 'Unmute';
     } else {
         video.muted = false;
-        document.getElementById('volume').innerHTML = Math.round(video.volume * 100) + '%';
         document.getElementById('mute').innerHTML = 'Mute';
     }
 });
