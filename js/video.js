@@ -1,7 +1,7 @@
 var video = document.querySelector("#player1");
 var volumeslider = document.querySelector("#slider");
 
-window.addEventListener("load", function() {
+document.querySelector("change", function() {
     console.log("Good job opening the window");
     video = document.querySelector("#player1");
     video.autoplay = false;
@@ -9,7 +9,8 @@ window.addEventListener("load", function() {
     console.log("Auto play is set to " + video.autoplay);
     console.log("loop is set to " + video.loop);
     video.volume = volumeslider.value / 100;
-    document.querySelector("#volume").textContent = Math.round(video.volume * 100) + "%";
+    document.querySelector("#volume").textContent = volumeslider.value + "%";
+    currentvolume;
 });
 
 document.querySelector("#pause").addEventListener("click", function() {
@@ -38,7 +39,6 @@ document.querySelector("#skip").addEventListener("click", function() {
     if (video.currentTime >= video.duration) {
         video.currentTime = 0;
     }
-    console.log("Skip Ahead");
     console.log("New Time " + video.currentTime);
 });
 
@@ -50,4 +50,16 @@ document.querySelector("#mute").addEventListener("click", function() {
         video.muted = false;
         document.getElementById('mute').innerHTML = 'Mute';
     }
+});
+
+document.querySelector("#vintage").addEventListener("click", function() {
+    var video = document.querySelector("video");
+    video.classList.add("oldSchool");
+    console.log("video is in old school mode");
+});
+
+document.querySelector("#orig").addEventListener("click", function() {
+    var video = document.querySelector("video");
+    video.classList.remove("oldSchool");
+    console.log("The video not in oldSchool mode anymore");
 });
