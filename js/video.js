@@ -8,9 +8,6 @@ document.querySelector("change", function() {
     video.loop = false;
     console.log("Auto play is set to " + video.autoplay);
     console.log("loop is set to " + video.loop);
-    video.volume = volumeslider.value / 100;
-    document.querySelector("#volume").textContent = volumeslider.value + "%";
-    currentvolume;
 });
 
 document.querySelector("#pause").addEventListener("click", function() {
@@ -42,6 +39,12 @@ document.querySelector("#skip").addEventListener("click", function() {
     console.log("New Time " + video.currentTime);
 });
 
+document.querySelector("#slider").addEventListener("input", function(){
+	console.log("sliderrr");
+	video.volume=this.value/100;//slider
+	document.querySelector("#volume").innerHTML=video.volume * 100 + "%";
+});
+
 document.querySelector("#mute").addEventListener("click", function() {
     if (!video.muted) {
         video.muted = true;
@@ -62,4 +65,6 @@ document.querySelector("#orig").addEventListener("click", function() {
     var video = document.querySelector("video");
     video.classList.remove("oldSchool");
     console.log("The video not in oldSchool mode anymore");
+
+
 });
